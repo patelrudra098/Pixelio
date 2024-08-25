@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* This is content CSS */
+.about-content {
+    padding: 20px;
+    background-color: none;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.about-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #fff;
+    text-align: justify;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 170vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #121212;
+    margin: 0;
+}
+
+.container-fluid {
+    padding-top: 10px; /* Adjust for PC */
+}
+
+/* Adjust the space between content and nav for PC */
+@media screen and (max-width: 767px) {
+    .container-fluid {
+        padding-top: 60px; /* Adjust for mobile */
+    }
+}
+
+.container {
+    position: relative;
+    max-width: 430px; /* Adjusted max-width */
+    width: 100%;
+    background: #23282f;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px; /* Adjusted margin */
+}
+
+.container .forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    transition: height 0.2s ease;
+}
+
+.container .form {
+    width: 100%;
+    padding: 30px;
+    background-color: #23282f;
+    transition: margin-left 0.18s ease;
+    margin-bottom: 20px;
+}
+
+.container.active .login {
+    margin-left: -50%;
+    opacity: 0;
+    transition: margin-left 0.18s ease, opacity 0.15s ease;
+}
+
+.container .signup {
+    opacity: 0;
+    transition: opacity 0.09s ease;
+}
+
+.container.active .signup {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.container.active .forms {
+    height: auto;
+}
+
+.container .form .title {
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.form .title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background-color: #21dee8;
+    border-radius: 25px;
+}
+
+.form .input-field {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input-field input,
+.input-field textarea {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #23282f;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+    background-color: #23282f;
+    color: #21dee8;
+}
+
+.input-field input:focus,
+.input-field input:valid,
+.input-field textarea:focus,
+.input-field textarea:valid {
+    border-bottom-color: #21dee8;
+}
+
+.input-field i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 23px;
+    transition: all 0.2s ease;
+}
+
+.input-field input:focus ~ i,
+.input-field input:valid ~ i,
+.input-field textarea:focus ~ i,
+.input-field textarea:valid ~ i {
+    color: #21dee8;
+}
+
+.input-field i.icon {
+    left: 0;
+}
+
+.input-field i.showHidePw {
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.form .text {
+    color: #999;
+    font-size: 14px;
+}
+
+.form a.text {
+    color: #21dee8;
+    text-decoration: none;
+}
+
+.form a:hover {
+    text-decoration: underline;
+}
+
+.form .button {
+    margin-top: 25px;
+}
+
+.form .button input {
+    border: none;
+    color: #121212;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    background-color: #21dee8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 12px 20px;
+}
+
+.button input:hover {
+    background-color: #13aab1;
+}
+
+.form .login-signup {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    border: 2px solid #21dee8;
+    padding: 8px 10px 8px 10px;
+    border-radius: 10px;
+}
+
+.home-button:hover {
+    color: #23282f;
+    background-color: #21dee8;
+}
+
+/* Style the text below the content */
+.text-below-content {
+    margin-top: 40px; /* Adjust as needed */
+    margin-bottom: 40px; /* Adjust as needed */
+    font-size: 21px; /* Adjust font size */
+    color: #21dee8; /* Text color */
+    text-align: center;
+    font-weight: 500;
+}

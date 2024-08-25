@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixelio</title>
+
+
+    <link href="{% static '/assets/css/landing.css' %}" rel="stylesheet">
+    <link href="{% static '/assets/css/landingnav.css' %}" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><a href="/">Pixel<span style="color: #21DEE8;">i</span>o</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="/">Pixel<span style="color: #21DEE8;">i</span>o</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="/home">Home</a></li>
+          
+
+                    {% if request.user.is_authenticated %}
+    <li><a  class="nav-link scrollto" href="/auth/logout/">Logout <i class="fa-solid fa-right-from-bracket"></i></a></li>
+{% else %}
+    <li><a href="/auth/signup/">Login</a></li>
+{% endif %}
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="searchBox">
+                   <div class="searchToggle">
+                    <i class='bx bx-x cancel'></i>
+                    <i class='bx bx-search search'></i>
+                   </div>
+
+                    <div class="search-field">
+                        <input type="text" placeholder="Search...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+<div class="slider">
+
+
+    <div class="list">
+
+        <div class="item">
+            <img src="{% static '/images/img1.jpg' %}" alt="">
+
+            <div class="content">
+                <div class="title">PIXELIO</div>
+                <div class="type">Discover, Find, Download Here!
+                </div>
+                <div class="description">
+                    Haven't found the perfect image you're looking for? Enter Pixelio, where you'll discover an extensive collection of images. Just type your keyword, hit enter, and download your desired image effortlessly.
+                </div>
+                <div class="button">
+                    <button><a href="/home">Explore</a></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="{% static '/images/img2.jpg' %}" alt="">
+
+            <div class="content">
+                <div class="title">PIXELIO</div>
+                <div class="type">Discover, Find, Download Here!
+                </div>
+                <div class="description">
+                    Struggling to find the right image for your project? Pixelio has you covered. Enter your keyword, press enter, and browse through a curated list of high-quality images. With Pixelio, image discovery and download are simplified.
+                </div>
+                <div class="button">
+                    <button><a href="/home">Explore</a></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="{% static '/images/img3.jpg' %}" alt="">
+
+            <div class="content">
+                <div class="title">PIXELIO</div>
+                <div class="type">Discover, Find, Download Here!
+                </div>
+                <div class="description">
+                    Tired of endlessly scrolling through image libraries? Pixelio offers a streamlined solution. Input your keyword, hit enter, and explore a variety of images tailored to your needs. With Pixelio's user-friendly interface, finding the perfect image is quick and hassle-free.
+                </div>
+                <div class="button">
+                    <button><a href="/home">Explore</a></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="{% static '/images/img4.jpg' %}" alt="">
+
+            <div class="content">
+                <div class="title">PIXELIO</div>
+                <div class="type">Discover, Find, Download Here!
+                </div>
+                <div class="description">
+                    Frustrated with complicated image search processes? Pixelio simplifies the experience. Just type your keyword, press enter, and unlock a world of stunning visuals. Whether for personal or professional use, Pixelio empowers you to discover and download images with ease.
+                </div>
+                <div class="button">
+                    <button><a href="/home">Explore</a></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="thumbnail">
+
+        <div class="item">
+            <img src="{% static '/images/img1.jpg' %}" alt="">
+        </div>
+        <div class="item">
+            <img src="{% static '/images/img2.jpg' %}" alt="">
+        </div>
+        <div class="item">
+            <img src="{% static '/images/img3.jpg' %}" alt="">
+        </div>
+        <div class="item">
+            <img src="{% static '/images/img4.jpg' %}" alt="">
+        </div>
+
+    </div>
+
+
+    <div class="nextPrevArrows">
+        <button class="prev"> &lt; </button>
+        <button class="next"> &gt; </button>
+    </div>
+
+
+</div>
+
+
+
+<script src="{% static '/assets/js/landingnav.js' %}"></script>
+<script src="{% static '/assets/js/landing.js' %}"></script>
+
+
+</body>
+</html>

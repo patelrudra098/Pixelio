@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="{% static '/assets/css/login.css' %}" rel="stylesheet">
+    <style>
+        /* Additional CSS for alerts */
+        .alert.alert-dismissible {
+            padding-right: 40px;
+            margin-bottom: 10px; /* Added margin */
+            position: relative; /* Needed for positioning the close button */
+        }
+
+        .alert strong {
+            color: #21dee8;
+            user-select: none;
+            font-size: 12px;
+        }
+        .alert .btn-close {
+            position: absolute;
+            top: 59%;
+            transform: translateY(-50%);
+            right: 5px;
+            cursor: pointer;
+            color: white; /* Change to white */
+            font-size: 20px; /* Increase size */
+        }
+
+        .alert button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: inherit;
+        }
+    </style>
+    <title>Pixelio</title> 
+</head>
+<body>
+    <a href="/home" class="home-button">Go to Home</a>
+    <div class="container">
+        <div class="forms">
+            <!-- Login Form -->
+            <div class="form login">
+                {% for message in messages %}
+                <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                    <strong>{{message}}</strong>
+                    <button type="button" class="btn-close" aria-label="Close">&times;</button>
+                </div>
+                {% endfor %}
+                <span class="title">Login</span>
+
+                <form action="/auth/login/" method="post">
+                    {% csrf_token %}
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your email" name="email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" name="pass1" placeholder="Enter your password" required>
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="submit" value="Login">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Not a member?
+                        <a href="/auth/signup/" class="text signup-link">Signup Now</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to close the alert when the close button is clicked
+        document.querySelectorAll('.btn-close').forEach(function(button) {
+            button.addEventListener('click', function() {
+                this.closest('.alert').remove();
+            });
+        });
+    </script>
+</body>
+</html>

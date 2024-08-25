@@ -1,0 +1,354 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="{% static '/assets/css/home.css' %}" rel="stylesheet">
+    <link href="{% static '/assets/css/homenav.css' %}" rel="stylesheet">
+    <link href="{% static '/assets/css/feedback.css' %}" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+       
+        .about-content {
+            padding: 20px;
+            background-color: none;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #fff;
+            text-align: justify;
+
+        }
+        
+    </style>
+    <title>Unsplash Images</title>
+</head>
+<body>
+    <div class="container-fluid p-0 m-0">
+        <!-- NAVBAR -->
+        <nav>
+            <div class="nav-bar">
+                <i class='bx bx-menu sidebarOpen'></i>
+                <span class="logo navLogo"><a href="/">Pixel<span style="color: #21DEE8;">i</span>o</a></span>
+
+                <div class="menu">
+                    <div class="logo-toggle">
+                        <span class="logo"><a href="/">Pixel<span style="color: #21DEE8;">i</span>o</a></span>
+                        <i class='bx bx-x siderbarClose'></i>
+                    </div>
+
+                    <ul class="nav-links">
+                        <li><a href="/home">Home</a></li>
+
+                        {% if request.user.is_authenticated %}
+                        <li><a class="nav-link scrollto" href="/auth/logout/">Logout <i class="fas fa-sign-out-alt"></i></a></li>
+                        {% else %}
+                        <li><a href="/auth/signup/">Login</a></li>
+                        {% endif %}
+
+                        <li><a href="/about">About</a></li>
+                    </ul>
+                </div>
+
+                <div class="darkLight-searchBox">
+                    <div class="searchBox">
+                        <div class="searchToggle">
+                            <i class='bx bx-x cancel'></i>
+                            <i class='bx bx-search search'></i>
+                        </div>
+
+                        <div class="search-field">
+                            <input type="text" placeholder="Search..." id="searchKey">
+                            <i class='bx bx-search' id="searchBtn"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- END NAVBAR -->
+        <section class="search-section">
+            <div class="content">
+                <span class="content-title">About Pixelio</span>
+                <div class="about-content">
+                    <p>Pixelio is a comprehensive platform that offers a vast collection of high-quality images for a wide range of purposes. Our platform allows users to easily search, view, and download stunning images, covering various categories such as landscapes, nature, architecture, people, and more. Whether you're a designer working on a creative project, a blogger looking for captivating visuals to enhance your content, or simply an individual seeking inspiration, Pixelio has you covered. With our user-friendly interface and advanced search features, finding the perfect image for your needs has never been easier. Join the Pixelio community today and unlock a world of endless possibilities with our vast collection of high-quality images.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+<div>Have any suggestions?</div>
+    <!-- HTML -->
+<div class="container">
+    <div class="forms">
+        <!-- Feedback Form -->
+        <div class="form feedback">
+            {% for message in messages %}
+            <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                <strong>{{message}}</strong>
+                <button type="button" class="btn-close" aria-label="Close">&times;</button>
+            </div>
+            {% endfor %}
+            <span class="title">Feedback</span>
+
+            <form action="/auth/feedback/" method="post">
+                {% csrf_token %}
+                <div class="input-field">
+                    <i class="uil uil-user"></i>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="input-field">
+                    <i class="uil uil-envelope"></i>
+                    <input type="text" placeholder="Enter your email" name="email" required>
+                </div>
+                <div class="input-field">
+                    <i class="uil uil-comment-alt"></i>
+                    <textarea placeholder="Enter your feedback" rows="5" required></textarea>
+                </div>
+
+                <div class="input-field button">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+
+            <div class="login-signup">
+                <span class="text">Already submitted feedback?
+                    <a href="/home" class="text signup-link">Go back to Home</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="{% static '/assets/js/home.js' %}"></script>
+    <script src="{% static '/assets/js/homenav.js' %}"></script>
+</body>
+</html>
+
+
+css:
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* This is content CSS */
+.about-content {
+    padding: 20px;
+    background-color: none;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.about-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #fff;
+    text-align: justify;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 150vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #121212;
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    max-width: 430px; /* Adjusted max-width */
+    width: 100%;
+    background: #23282f;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px; /* Adjusted margin */
+}
+
+.container .forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    transition: height 0.2s ease;
+}
+
+.container .form {
+    width: 100%;
+    padding: 30px;
+    background-color: #23282f;
+    transition: margin-left 0.18s ease;
+    margin-bottom: 20px;
+}
+
+.container.active .login {
+    margin-left: -50%;
+    opacity: 0;
+    transition: margin-left 0.18s ease, opacity 0.15s ease;
+}
+
+.container .signup {
+    opacity: 0;
+    transition: opacity 0.09s ease;
+}
+
+.container.active .signup {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.container.active .forms {
+    height: auto;
+}
+
+.container .form .title {
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.form .title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background-color: #21dee8;
+    border-radius: 25px;
+}
+
+.form .input-field {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input-field input,
+.input-field textarea {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #23282f;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+    background-color: #23282f;
+    color: #21dee8;
+}
+
+.input-field input:focus,
+.input-field input:valid,
+.input-field textarea:focus,
+.input-field textarea:valid {
+    border-bottom-color: #21dee8;
+}
+
+.input-field i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 23px;
+    transition: all 0.2s ease;
+}
+
+.input-field input:focus ~ i,
+.input-field input:valid ~ i,
+.input-field textarea:focus ~ i,
+.input-field textarea:valid ~ i {
+    color: #21dee8;
+}
+
+.input-field i.icon {
+    left: 0;
+}
+
+.input-field i.showHidePw {
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.form .text {
+    color: #999;
+    font-size: 14px;
+}
+
+.form a.text {
+    color: #21dee8;
+    text-decoration: none;
+}
+
+.form a:hover {
+    text-decoration: underline;
+}
+
+.form .button {
+    margin-top: 25px;
+}
+
+.form .button input {
+    border: none;
+    color: #121212;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    background-color: #21dee8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 12px 20px;
+}
+
+.button input:hover {
+    background-color: #13aab1;
+}
+
+.form .login-signup {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    border: 2px solid #21dee8;
+    padding: 8px 10px 8px 10px;
+    border-radius: 10px;
+}
+
+.home-button:hover {
+    color: #23282f;
+    background-color: #21dee8;
+}
