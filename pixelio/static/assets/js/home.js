@@ -15,7 +15,7 @@ const downloadButton = document.getElementById("downloadButton");
 let orderByValue = '';
 
 // APIs
-const API_KEY = "Co4oCtK4VAc_Jy2gqLwFe3zGFQaxxp596iwX1hTqrB0";
+const API_KEY = "YOUR_API_KEY";
 
 // 04_hhE-siKE0-DuqaIZnf4MptVEXOl25-0OEYuCnR9A
 
